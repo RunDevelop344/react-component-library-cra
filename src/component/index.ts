@@ -6,3 +6,4 @@ export * from "./Dropdown";
 export * from "./RadioButton";
 export * from "./Img";
 export *from './HeroImage';
+export *from "./Card";
