@@ -62,60 +62,74 @@ function App() {
       </Section>
 
       {/* Dropdown */}
-      <Dropdown
-      options={[
-    { label: "Option 1", value: "option1" },
-    { label: "Option 2", value: "option2" },
-    ]}/>
+      <Section>
+        <SectionTitle>Dropdown</SectionTitle>
+        <Dropdown
+          options={[
+            { label: "Option 1", value: "option1" },
+            { label: "Option 2", value: "option2" },
+          ]}
+        />
+      </Section>
 
       {/* Radio Buttons */}
-      <RadioButton
-      label="Option A"
-      name="exampleRadio"
-      value="optionA"
-      />
-
-      <RadioButton
-      label="Option B"
-      name="exampleRadio"
-      value="optionB"
-      disabled
-      />
+      <Section>
+        <SectionTitle>Radio Buttons</SectionTitle>
+        <RadioButton
+          label="Option A"
+          name="exampleRadio"
+          value="optionA"
+        />
+        <RadioButton
+          label="Option B"
+          name="exampleRadio"
+          value="optionB"
+          disabled
+        />
+      </Section>
 
       {/* Images */}
       <Section>
         <SectionTitle>Images</SectionTitle>
         <Img src="https://via.placeholder.com/150" alt="Sample" />
-        <HeroImage imageUrl="https://via.placeholder.com/600x200" title="Hero Sample" />
+        <HeroImage
+          imageUrl="https://via.placeholder.com/600x200"
+          title="Hero Sample"
+        />
       </Section>
 
       {/* Cards */}
-      <Card
-      title="Sample Card"
-      content="This is a card description"
-      />
-
+      <Section>
+        <SectionTitle>Cards</SectionTitle>
+        <Card
+          title="Sample Card"
+          content="This is a card description"
+        />
+      </Section>
 
       {/* Table */}
       <Section>
         <SectionTitle>Table</SectionTitle>
         <Table>
-          <TableHeader>
+          <thead>
             <TableRow>
-              <TableCell>Header 1</TableCell>
-              <TableCell>Header 2</TableCell>
+              <TableHeader>Header 1</TableHeader>
+              <TableHeader>Header 2</TableHeader>
             </TableRow>
-          </TableHeader>
+          </thead>
+
           <tbody>
             <TableRow>
-              <TableCell>Row 1 Col 1</TableCell>
-              <TableCell>Row 1 Col 2</TableCell>
+              <TableCell>Row 1 col 1</TableCell>
+              <TableCell>Row 1 col 2</TableCell>
             </TableRow>
+
             <TableRow>
-              <TableCell>Row 2 Col 1</TableCell>
-              <TableCell>Row 2 Col 2</TableCell>
+              <TableCell>Row 2 col 1</TableCell>
+              <TableCell>Row 2 col 2</TableCell>
             </TableRow>
           </tbody>
+
           <TableFooter>
             <TableRow>
               <TableCell>Footer 1</TableCell>
