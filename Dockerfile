@@ -20,6 +20,7 @@ COPY . .
 
 # Build the React app for production
 # This creates the optimized 'build/' folder, ready to be served
+ENV DISABLE_ESLINT_PLUGIN=true
 RUN npm run build
 
 # Install a lightweight static server globally in the container
