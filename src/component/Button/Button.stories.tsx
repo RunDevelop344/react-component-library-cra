@@ -27,5 +27,6 @@ export const Disabled: Story = {
   args: {
     label: 'Disabled',
     disabled: true,
+    backgroundColor: 'pink',
   },
 };

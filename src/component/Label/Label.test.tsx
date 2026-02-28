@@ -1,6 +1,6 @@
-// src/components/Label/Label.tests.tsx
 import React from "react";
 import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
 import { Label } from "./Label";
 
 describe("Label Component", () => {
@@ -12,6 +12,7 @@ describe("Label Component", () => {
   test("disabled label is greyed out", () => {
     render(<Label text="Disabled Label" disabled />);
     const label = screen.getByText("Disabled Label");
+
     expect(label).toHaveStyle("color: grey");
     expect(label).toHaveStyle("cursor: not-allowed");
   });
