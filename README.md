@@ -85,31 +85,22 @@ Dockerfile (Sample)
 
 Create a file named Dockerfile in the project root.
 
-# Use lightweight Node image
 FROM node:18-alpine
 
-# Set working directory
 WORKDIR /lastname_firstname_ui_garden
 
-# Copy package files
 COPY package*.json ./
 
-# Install dependencies
 RUN npm install
 
-# Copy project files
 COPY . .
 
-# Build production app
 RUN npm run build
 
-# Install static server
 RUN npm install -g serve
 
-# Expose port
 EXPOSE 8083
 
-# Start the app
 CMD ["serve", "-s", "build", "-l", "8083"]
 
 Build Docker Image:
@@ -121,5 +112,6 @@ docker run -p 8083:8083 --name simran_simran_coding_assignment12 simran_simran_c
 Git hub link: https://github.com/RunDevelop344/react-component-library-cra.git
 
 Author: Simran Simran
+
 License:This project is for academic and demonstration purposes.
 
