@@ -1,46 +1,123 @@
-# Getting Started with Create React App
+React Component Library (CRA)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A reusable React + TypeScript component library built with Create React App, Storybook, and Docker.
+This project demonstrates a complete UI component workflow from development to containerized deployment.
 
-## Available Scripts
+Project Overview:
 
-In the project directory, you can run:
+This project includes reusable UI components such as:
 
-### `npm start`
+Button
+Label
+Text
+Dropdown
+RadioButton
+Img
+HeroImage
+Card
+Table (with Row, Header, Cell, Footer)
+Each component follows a consistent 5-file structure for scalability and maintainability.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Component Structure (Important):
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Every component contains five files:
 
-### `npm test`
+ComponentName/
+├── ComponentName.tsx        # Component implementation
+├── ComponentName.types.ts   # TypeScript interfaces
+├── ComponentName.module.css # Styling
+├── ComponentName.stories.tsx # Storybook stories
+└── ComponentName.test.tsx   # Unit tests
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Getting Started
+1.  Create React App (TypeScript)
+npx create-react-app react-component-library-cra --template typescript
+cd react-component-library-cra
 
-### `npm run build`
+2.Install Core Dependencies
+npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3.Install Storybook
+npx storybook@latest init
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Run Storybook:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+npm run storybook
 
-### `npm run eject`
+Storybook runs at:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+http://localhost:6006
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4.Install Testing Libraries (if needed)
+npm install --save-dev @testing-library/react @testing-library/jest-dom
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+5.Webpack (Already Included in CRA)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Create React App already includes Webpack.
+No manual configuration is required unless customizing.
 
-## Learn More
+Available Scripts
+Start Development Server
+npm start
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Runs the app at:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+http://localhost:3000
+
+Run Storybook:
+npm run storybook
+
+Run Tests:
+npm test
+
+Create Production Build:
+npm run build
+
+Output folder:
+
+/build
+
+Dockerization:
+
+This project is then containerized for production deployment.
+
+Dockerfile (Sample)
+
+Create a file named Dockerfile in the project root.
+
+# Use lightweight Node image
+FROM node:18-alpine
+
+# Set working directory
+WORKDIR /lastname_firstname_ui_garden
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy project files
+COPY . .
+
+# Build production app
+RUN npm run build
+
+# Install static server
+RUN npm install -g serve
+
+# Expose port
+EXPOSE 8083
+
+# Start the app
+CMD ["serve", "-s", "build", "-l", "8083"]
+
+Build Docker Image:
+docker build -t simran_simran_coding_assignment12 .
+
+Run Docker Container
+docker run -p 8083:8083 --name simran_simran_coding_assignment12 simran_simran_coding_assignment12
+
+Author: Simran Simran
+License:This project is for academic and demonstration purposes.
+
