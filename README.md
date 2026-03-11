@@ -25,7 +25,7 @@ Every component contains five files:
 ComponentName/
 ├── ComponentName.tsx        # Component implementation
 ├── ComponentName.types.ts   # TypeScript interfaces
-├── ComponentName.module.css # Styling
+├── ComponentName.index.ts
 ├── ComponentName.stories.tsx # Storybook stories
 └── ComponentName.test.tsx   # Unit tests
 
